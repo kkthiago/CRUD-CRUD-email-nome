@@ -6,7 +6,7 @@ fetch("https://crudcrud.com/api/c250e0a678a2492699882e29b6ed0226/cadastro")
         cadastroNE.forEach(cadastro => {
             const listItem = document.createElement("li");
             listItem.id = cadastro._id; 
-            listItem.innerHTML = `${cadastro.nome}, ${cadastro.email} <button class="deletarUsuario">X</button>`;
+            listItem.innerHTML = `NOME: ${cadastro.nome};<br> EMAIL: ${cadastro.email} <button class="deletarUsuario">X</button>`;
             login.appendChild(listItem);
         });
     })
@@ -16,7 +16,7 @@ document.getElementById("cadastrar").addEventListener("click", () => {
     const nome = document.getElementById("nome").value;
     const email = document.getElementById("email").value;
 
-    fetch("https://crudcrud.com/api/c250e0a678a2492699882e29b6ed0226/cadastro", {
+    fetch("https://crudcrud.com/api/88e0c89f14cf437aabe9dd50fad2d524/cadastro", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -27,7 +27,7 @@ document.getElementById("cadastrar").addEventListener("click", () => {
     .then((cadastro) => {
         const listItem = document.createElement("li");
         listItem.id = cadastro._id; 
-        listItem.innerHTML = `${cadastro.nome}, ${cadastro.email} <button class="deletarUsuario">X</button>`;
+        listItem.innerHTML = `NOME: ${cadastro.nome};<br> EMAIL: ${cadastro.email} <button class="deletarUsuario">X</button>`;
         login.appendChild(listItem);
     })
     .catch(erro => console.error("Erro ao cadastrar usuário:", erro));
@@ -39,7 +39,7 @@ document.addEventListener("click", (event) => {
         const item = event.target.parentElement;
         const _id = item.id;
 
-        fetch(`https://crudcrud.com/api/c250e0a678a2492699882e29b6ed0226/cadastro/${_id}`, {
+        fetch(`https://crudcrud.com/api/88e0c89f14cf437aabe9dd50fad2d524/cadastro/${_id}`, {
             method: "DELETE"
         })
         .then(() => {
